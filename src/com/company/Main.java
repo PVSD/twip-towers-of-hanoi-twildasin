@@ -11,40 +11,30 @@ public class Main {
 
         boolean con = true;
 
+        System.out.println("Welcome to Tower of Hanoi Game Walk-through!\nPlease enter the numbers of rings you want between 3 and 9 (inclusive).");
+
+        //While loops checks for correct user answer (number from 3 - 9 inclusive).
         while(con)
         {
             try
             {
                 val = Integer.parseInt(kbin.nextLine());
+                //Checks if value is in the correct range;
                 if(val > 2 && val <10)
+                    //Changes bool to exit the while loop
                     con = false;
                 else
-                    System.out.printf("Please input a number from 3 to 9 inclusive");
+                    System.out.println("Please input a number from 3 to 9 inclusive");
             }
+            //Catches an error if the input is not a number
             catch (NumberFormatException e)
             {
                 System.out.println("Invalid input, numbers only");
             }
         }
 
-        //Makes three "poles" as integer arrays
-        int pole1[] = new int [val];
-        int pole2[] = new int [val];
-        int pole3[] = new int [val];
 
-        for(int i = 0; i < val; i++)
-        {
-            System.out.println(i);
-            pole1[val] = -1;
-            pole2[val] = -1;
-            pole3[val] = -1;
-        }
-
-        for (int x: pole1)
-        {
-            System.out.println(x);
-        }
-
+        tower.solve(val, 1,3,2);
 
     }
 }
